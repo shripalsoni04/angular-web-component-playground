@@ -1,0 +1,15 @@
+.form-group label {
+    display: block;
+    color: lightslategrey;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    border: 0;
+    border-bottom: 1px solid lightseagreen;
+    font-size: 14px;
+  }
+
+  .form-group input:focus {
+    outline: 0;
+  }
