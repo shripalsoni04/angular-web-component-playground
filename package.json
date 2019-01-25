@@ -8,9 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package": "cat ./dist/sh-wc-components/runtime.js ./dist/sh-wc-components/polyfills.js ./dist/sh-wc-components/main.js > ./dist/sh-wc-components/sh-web-components.js",
-    "prepare-standalone-wc-package": "ng build sh-wc-components --prod ---output-hashing=none && npm run package",
-    "prepare-ng-package": "ng build --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true"
+    "pack-ng-component-lib": "cd dist/sh-components && npm pack",
+    "wc-package": "cat ./dist/sh-wc-components/runtime.js ./dist/sh-wc-components/polyfills.js ./dist/sh-wc-components/main.js > ./dist/sh-wc-components/sh-web-components.js",
+    "prepare-standalone-wc-package": "ng build sh-wc-components --prod ---output-hashing=none && npm run wc-package",
+    "prepare-ng-dependent-package": "ng build --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true",
+    "prepare-ng-component-lib-package": "ng build sh-components && npm run pack-ng-component-lib"
   },
   "private": true,
   "dependencies": {
