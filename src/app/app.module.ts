@@ -1,20 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { TextfieldModule } from './textfield/textfield.module';
-import { FirstLookModule } from './first-look/first-look.module';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { MyComponent } from './my-component/my-component.component';
+import { TextfieldComponent } from './textfield/textfield.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule,
-    FirstLookModule,
-    TextfieldModule
+    BrowserModule
+  ],
+  declarations: [
+    MyComponent,
+    TextfieldComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    MyComponent,
+    TextfieldComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const MyComponentCustomElement = createCustomElement(MyComponent, { injector: this.injector });
+    const TextfieldCustomElement = createCustomElement(TextfieldComponent, { injector: this.injector });
+
+    customElements.define('my-component', MyComponentCustomElement);
+    customElements.define('sh-textfield', TextfieldCustomElement);
+  }
+}

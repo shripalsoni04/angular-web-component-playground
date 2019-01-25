@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'my-component',
+  selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
   encapsulation: ViewEncapsulation.Native

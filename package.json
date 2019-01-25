@@ -4,10 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --output-hashing=none",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package": "cat ./dist/angular-element-playground/runtime.js ./dist/angular-element-playground/polyfills.js ./dist/angular-element-playground/scripts.js ./dist/angular-element-playground/main.js > angular-element-playground.js",
+    "prepare-standalone-package": "npm run build && npm run package",
+    "prepare-ng-package": "ng build --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true"
   },
   "private": true,
   "dependencies": {
@@ -21,10 +24,11 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
+    "document-register-element": "^1.7.2",
+    "ngx-build-plus": "^7.7.2",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
-    "document-register-element": "^1.7.2"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",

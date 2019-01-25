@@ -2,8 +2,7 @@ import { Component, OnChanges, ViewEncapsulation, Input, Output, EventEmitter } 
 import { InputConfig } from './interfdaces';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'sh-textfield',
+  selector: 'app-textfield',
   templateUrl: './textfield.component.html',
   styleUrls: ['./textfield.component.css'],
   encapsulation: ViewEncapsulation.Native
@@ -52,7 +51,6 @@ export class TextfieldComponent implements OnChanges {
 
   handleInputChange(value) {
     this.onChange.emit(value);
-    console.log('emiting event', value);
   }
 
 }
