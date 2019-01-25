@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package": "cat ./dist/sh-wc-components/runtime.js ./dist/sh-wc-components/polyfills.js ./dist/sh-wc-components/main.js > ./dist/sh-wc-components/angular-element-playground.js",
+    "package": "cat ./dist/sh-wc-components/runtime.js ./dist/sh-wc-components/polyfills.js ./dist/sh-wc-components/main.js > ./dist/sh-wc-components/sh-web-components.js",
     "prepare-standalone-wc-package": "ng build sh-wc-components --prod ---output-hashing=none && npm run package",
     "prepare-ng-package": "ng build --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true"
   },
