@@ -8,13 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="./angular-element-playground.js"></script>
+  <style type="text/css">
+    sh-textfield {
+      display: block;
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
-  <sh-textfield label="Name" placeholder="Enter Name" config="{maxlength: 10}" testArray="hello" value="some value"></sh-textfield>
-  <my-component first="Shripal" last="Soni"></my-component>
+  <sh-textfield id="firstName" label="First Name" placeholder="Enter First Name" config="{maxlength: 10}" testArray="hello" value="Shripal"></sh-textfield>
+  <sh-textfield id="lastName" label="Last Name" placeholder="Enter Last Name" value="Soni"></sh-textfield>
+  <sh-hello-world first="Shripal" last="Soni"></sh-hello-world>
   <script>
-    const ele = document.querySelector('sh-textfield');
-    ele.addEventListener('onChange', (value) => console.log(value));
+    const firstNameEle = document.querySelector('#firstName');
+    const lastNameEle = document.querySelector('#lastName');
+    const helloWorldEle = document.querySelector('sh-hello-world');
+    firstNameEle.addEventListener('onChange', (event) => {
+      helloWorldEle.first = event.detail;
+    });
+    lastNameEle.addEventListener('onChange', (event) => {
+      helloWorldEle.last = event.detail;
+    });
   </script>
 </body>
 </html>

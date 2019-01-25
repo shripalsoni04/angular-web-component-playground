@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package": "cat ./dist/angular-element-playground/runtime.js ./dist/angular-element-playground/polyfills.js ./dist/angular-element-playground/scripts.js ./dist/angular-element-playground/main.js > angular-element-playground.js",
-    "prepare-standalone-package": "npm run build && npm run package",
+    "package": "cat ./dist/sh-wc-components/runtime.js ./dist/sh-wc-components/polyfills.js ./dist/sh-wc-components/main.js > ./dist/sh-wc-components/angular-element-playground.js",
+    "prepare-standalone-wc-package": "ng build sh-wc-components --prod ---output-hashing=none && npm run package",
     "prepare-ng-package": "ng build --prod --extraWebpackConfig webpack.extra.js --output-hashing none --single-bundle true"
   },
   "private": true,

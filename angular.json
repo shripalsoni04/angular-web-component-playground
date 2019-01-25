@@ -295,6 +295,105 @@
           }
         }
       }
+    },
+    "sh-wc-components": {
+      "root": "projects/sh-wc-components/",
+      "sourceRoot": "projects/sh-wc-components/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sh-wc-components",
+            "index": "projects/sh-wc-components/src/index.html",
+            "main": "projects/sh-wc-components/src/main.ts",
+            "polyfills": "projects/sh-wc-components/src/polyfills.ts",
+            "tsConfig": "projects/sh-wc-components/tsconfig.app.json",
+            "assets": [
+              "projects/sh-wc-components/src/favicon.ico",
+              "projects/sh-wc-components/src/assets"
+            ],
+            "styles": [
+              "projects/sh-wc-components/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sh-wc-components/src/environments/environment.ts",
+                  "with": "projects/sh-wc-components/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sh-wc-components:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sh-wc-components:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sh-wc-components:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sh-wc-components/src/test.ts",
+            "polyfills": "projects/sh-wc-components/src/polyfills.ts",
+            "tsConfig": "projects/sh-wc-components/tsconfig.spec.json",
+            "karmaConfig": "projects/sh-wc-components/karma.conf.js",
+            "styles": [
+              "projects/sh-wc-components/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/sh-wc-components/src/favicon.ico",
+              "projects/sh-wc-components/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sh-wc-components/tsconfig.app.json",
+              "projects/sh-wc-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-element-playground"

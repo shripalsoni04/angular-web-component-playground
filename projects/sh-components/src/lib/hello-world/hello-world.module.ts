@@ -6,6 +6,7 @@ import { HelloWorldComponent } from './hello-world.component';
   declarations: [ HelloWorldComponent ],
   imports: [ CommonModule ],
   exports: [ HelloWorldComponent ],
+  entryComponents: [ HelloWorldComponent ],
   providers: []
 })
 export class HelloWorldModule {}

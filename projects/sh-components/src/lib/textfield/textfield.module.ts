@@ -6,6 +6,7 @@ import { TextfieldComponent } from './textfield.component';
   declarations: [ TextfieldComponent ],
   imports: [ CommonModule ],
   exports: [ TextfieldComponent ],
+  entryComponents: [ TextfieldComponent ],
   providers: []
 })
 export class TextfieldModule {}
