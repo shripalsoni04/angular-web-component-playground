@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-my-component',
-  templateUrl: './my-component.component.html',
-  styleUrls: ['./my-component.component.css'],
+  selector: 'sh-hello-world',
+  templateUrl: './hello-world.component.html',
+  styleUrls: ['./hello-world.component.css'],
   encapsulation: ViewEncapsulation.Native
 })
-export class MyComponent implements OnInit {
+export class HelloWorldComponent implements OnInit {
 
   /**
    * The first name

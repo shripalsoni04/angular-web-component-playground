@@ -2,7 +2,7 @@ import { Component, OnChanges, ViewEncapsulation, Input, Output, EventEmitter } 
 import { InputConfig } from './interfdaces';
 
 @Component({
-  selector: 'app-textfield',
+  selector: 'sh-textfield',
   templateUrl: './textfield.component.html',
   styleUrls: ['./textfield.component.css'],
   encapsulation: ViewEncapsulation.Native
@@ -31,7 +31,7 @@ export class TextfieldComponent implements OnChanges {
   maxlength: number;
 
   @Input()
-  value: string;
+  value = '';
 
   // tslint:disable-next-line:no-output-on-prefix
   @Output()
@@ -47,6 +47,7 @@ export class TextfieldComponent implements OnChanges {
     console.log('testArray', this.testArray);
     console.log('isRequired', this.isRequired);
     console.log('maxlength', this.maxlength);
+    console.log('value', this.value);
   }
 
   handleInputChange(value) {
